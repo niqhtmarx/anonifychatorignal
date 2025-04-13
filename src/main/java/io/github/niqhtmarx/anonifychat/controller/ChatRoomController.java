@@ -1,4 +1,4 @@
 package io.github.niqhtmarx.anonifychat.controller;
 
-public class ChatController {
+public class ChatRoomController {
 }

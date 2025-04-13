@@ -7,6 +7,7 @@ import jakarta.validation.constraints.Size;
 import java.time.LocalDateTime;
 import java.util.List;
 import java.util.Objects;
+
 @Entity
 @Table(name = "threads")
 public class ThreadEntity {
@@ -27,14 +28,14 @@ public class ThreadEntity {
     @Column(nullable = false)
     private String anonId;
 
-    @OneToMany(mappedBy = "thread",cascade = CascadeType.ALL,orphanRemoval = true)
+    @OneToMany(mappedBy = "thread", cascade = CascadeType.ALL, orphanRemoval = true)
     private List<Post> posts;
 
     public ThreadEntity() {
 
     }
 
-    public ThreadEntity( String title,  String anonId, List<Post> posts) {
+    public ThreadEntity(String title, String anonId, List<Post> posts) {
         this.title = title;
         this.createdAt = LocalDateTime.now();
         this.anonId = anonId;
@@ -103,6 +104,7 @@ public class ThreadEntity {
                 ", posts=" + posts +
                 '}';
     }
+
     @PrePersist
     protected void onCreate() {
         createdAt = LocalDateTime.now();
